@@ -4,12 +4,33 @@
 
 --- 
 
+### How to set attributes based on a condition
+
+> This doesn't work: `<span class="<if {true}>active</if>">`
+
+<details><summary><b>Answer</b></summary>
+
+For css classes, I suggest
+* `<span class={["item" => true, "active" => isActive]}` 
+* or `<span class={{ item: true, active: isActive}}`
+
+But better yet,  
+```haxe
+static var ITEM:tink.domspec.ClassName = "item"; 
+static var ACTIVE:tink.domspec.ClassName = "active" 
+```
+And use it like  `<span class={ITEM.add([ACTIVE => isActive]}`.  
+It's using this abstract: <https://github.com/haxetink/tink_domspec/blob/master/src/tink/domspec/ClassName.hx>
+ 
+</details>
+
+
 ### How do you declare some var inside a render function?
 
 <details><summary><b>Answer</b></summary>
 
 * One option is `function render() { var x = 123; return @hxx'<span>{x}</span>';  }`
-* Or you use `<let>`: https://github.com/haxetink/tink_hxx/#let
+* Or you use `<let>`: <https://github.com/haxetink/tink_hxx/#let>
 
 </details>
 
@@ -23,12 +44,12 @@
 
 Yep, this is as simple as:
  
-```
+```haxe
 function custom(attr:{children:coconut.ui.Children}) '<div class="custom">${...attr.children}</div>';
 ```
 
 * You can pass children as second argument as well
-* The rules are a bit complex, to allow for different styles: https://github.com/haxetink/tink_hxx/#tag-semantics
+* The rules are a bit complex, to allow for different styles: <https://github.com/haxetink/tink_hxx/#tag-semantics>
 
 </details>
 
