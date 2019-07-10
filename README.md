@@ -4,7 +4,7 @@
 
 --- 
 
-#### How do you declare some var inside a render function?
+### How do you declare some var inside a render function?
 
 <details><summary><b>Answer</b></summary>
 
@@ -14,7 +14,7 @@
 </details>
 
 
-#### How to acces children within custom render function
+### How to access children within custom render function?
 
 > If you have `<custom>Wow</custom>` which is a render function defined like this `function custom(attr:{})`, 
 > is it possible to get/render its children too?
@@ -32,7 +32,7 @@ function custom(attr:{children:coconut.ui.Children}) '<div class="custom">${...a
 
 </details>
 
-#### How to update page title with a component
+### How to update page title with a component?
 
 <details><summary><b>Answer</b></summary>
 
@@ -61,7 +61,7 @@ This works as simple as `<PageInfo title="${title} - ${pageName}" description="$
 
 </details>
 
-#### How to create inline scope
+### How to an create inline scope inside a view?
  
 Is it possible to create/define a new observable scope within the view?  Something like this:
 
