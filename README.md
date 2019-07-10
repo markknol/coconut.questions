@@ -57,7 +57,7 @@ function custom(attr:{children:coconut.ui.Children}) '<div class="custom">${...a
 
 <details><summary><b>Answer</b></summary>
 
-```
+```haxe
 class PageInfo extends View {
     @:attribute var title:String;
     @:attribute var description:String;
@@ -86,7 +86,7 @@ This works as simple as `<PageInfo title="${title} - ${pageName}" description="$
  
 Is it possible to create/define a new observable scope within the view?  Something like this:
 
-```
+```jsx
 <for {i in 0...10}>
  <scope enabled={false}>
     ${Std.string(enabled)}
@@ -100,7 +100,7 @@ Is it possible to create/define a new observable scope within the view?  Somethi
   
 It sorta depends on what you need, that thing will reset when the parent rerenders. You could try something like this:
   
-```
+```haxe
 class Stateful<T> extends View {
   @:attribute var init:Void->T;
   @:attribute var content:{ final state:T; }->RenderResult;
@@ -110,19 +110,11 @@ class Stateful<T> extends View {
     return content({ state: adhocState });
   }
 }
-
-<for {i in 0...10}>
-  <Stateful init={State.new(false)}>
-     <content>
-       <button onclick=${state.set(true)}>enable</button>
-       <button onclick=${state.set(false)}>disable</button>
-     </content>
-  </Stateful>
-</for>
-
 ```
-usage
-```
+
+Then use it like this:
+
+```jsx
 <for {i in 0...10}>
   <Stateful init={() -> new SomeModel({ enabled: false })}>
      <content>
