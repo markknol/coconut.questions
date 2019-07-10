@@ -82,7 +82,7 @@ This works as simple as `<PageInfo title="${title} - ${pageName}" description="$
 
 </details>
 
-## How to an create inline scope inside a view?
+## How to an approach inline scope inside a view?
  
 Is it possible to create/define a new observable scope within the view?  Something like this:
 
