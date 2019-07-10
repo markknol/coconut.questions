@@ -4,7 +4,7 @@
 
 --- 
 
-### How to set attributes based on a condition
+## How to set attributes based on a condition
 
 > This doesn't work: `<span class="<if {true}>active</if>">`
 
@@ -25,7 +25,7 @@ It's using this abstract: <https://github.com/haxetink/tink_domspec/blob/master/
 </details>
 
 
-### How do you declare some var inside a render function?
+## How do you declare some var inside a render function?
 
 <details><summary><b>Answer</b></summary>
 
@@ -35,7 +35,7 @@ It's using this abstract: <https://github.com/haxetink/tink_domspec/blob/master/
 </details>
 
 
-### How to access children within custom render function?
+## How to access children within custom render function?
 
 > If you have `<custom>Wow</custom>` which is a render function defined like this `function custom(attr:{})`, 
 > is it possible to get/render its children too?
@@ -53,7 +53,7 @@ function custom(attr:{children:coconut.ui.Children}) '<div class="custom">${...a
 
 </details>
 
-### How to update page title with a component?
+## How to update page title with a component?
 
 <details><summary><b>Answer</b></summary>
 
@@ -82,7 +82,7 @@ This works as simple as `<PageInfo title="${title} - ${pageName}" description="$
 
 </details>
 
-### How to an create inline scope inside a view?
+## How to an create inline scope inside a view?
  
 Is it possible to create/define a new observable scope within the view?  Something like this:
 
