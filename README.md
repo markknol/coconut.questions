@@ -129,7 +129,15 @@ Then use it like this:
 
 Childless views have their child notes interpreted as attributes, a feature I termed [complex attributes](https://github.com/haxetink/tink_hxx/#complex-attributes)
 
+</details>
+
+## Are there coconut.ui components to handle routing ?
+
+<details><summary><b>Answer</b></summary>
+
+Check this out <https://github.com/kevinresol/coconut.router>
 
 </details>
+
 
 ---
