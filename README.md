@@ -34,6 +34,16 @@ It's using this abstract: <https://github.com/haxetink/tink_domspec/blob/master/
 
 </details>
 
+## Why doesn't float translate to a renderable
+
+I get `Float should be coconut.ui.RenderResult`
+
+<details><summary><b>Answer</b></summary>
+
+That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you don't want `1.40632469e12` to be shown to user, so developers are forced to write their own float to string functions.
+
+</details>
+
 
 ## How to access children within custom render function?
 
@@ -135,9 +145,9 @@ Childless views have their child notes interpreted as attributes, a feature I te
 
 <details><summary><b>Answer</b></summary>
 
-Check this out <https://github.com/kevinresol/coconut.router>
+1. If you want simple location hash and assuming the state is all in one place, then you could do something like `function viewDidMount() { window.onhashchange = function () {/* set states from hash here*/}; Observable.auto(() -> /* compute url from states*/).bind(url -> window.location.hash = url)}`
+1. If you like a more elegant solution, check this out <https://github.com/kevinresol/coconut.router>
 
 </details>
-
 
 ---
