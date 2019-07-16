@@ -44,6 +44,19 @@ That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you 
 
 </details>
 
+## How to pass a class in custom render function?
+
+> Let's say I have `<custom class=${{"active": true}}>w00t</custom>`  
+> And this render runction: `function custom(attr:{class:String}) '<div class=${attr.class}></div>'`  
+> How do you define `attr.class`? 
+
+<details><summary><b>Answer</b></summary>
+
+* Rename the attribute `class` to `className` and use `className:tink.domspec.ClassName`
+* More info: <https://github.com/haxetink/tink_domspec/blob/master/src/tink/domspec/ClassName.hx>
+
+</details>
+
 
 ## How to access children within custom render function?
 
