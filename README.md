@@ -145,7 +145,8 @@ Childless views have their child notes interpreted as attributes, a feature I te
 
 <details><summary><b>Answer</b></summary>
 
-1. If you want simple location hash and assuming the state is all in one place, then you could do something like `function viewDidMount() { window.onhashchange = function () {/* set states from hash here*/}; Observable.auto(() -> /* compute url from states*/).bind(url -> window.location.hash = url)}`
+1. If you want simple location hash and assuming the state is all in one place, then you could do something like `function viewDidMount() { window.onhashchange = function () {/* set states from hash here*/}; Observable.auto(() -> /* compute url from states*/).bind(url -> window.location.hash = url)}`. `Observable.auto` is what's underpinning every `@:computed` property
+and in essence a coconut view is something like `Observable.auto(this.render).bind(applyVDom)`.
 1. If you like a more elegant solution, check this out <https://github.com/kevinresol/coconut.router>
 
 </details>
