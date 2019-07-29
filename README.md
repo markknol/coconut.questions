@@ -36,7 +36,11 @@ It's using this abstract: <https://github.com/haxetink/tink_domspec/blob/master/
 
 ## Why doesn't float translate to a renderable
 
-I get `Float should be coconut.ui.RenderResult`
+<details><summary><b>Question</b></summary>
+ 
+I get error `Float should be coconut.ui.RenderResult`
+
+</details>
 
 <details><summary><b>Answer</b></summary>
 
@@ -46,9 +50,13 @@ That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you 
 
 ## How to pass a class in custom render function?
 
+<details><summary><b>Question</b></summary>
+ 
 > Let's say I have `<custom class=${{"active": true}}>w00t</custom>`  
 > And this render runction: `function custom(attr:{class:String}) '<div class=${attr.class}></div>'`  
 > How do you define `attr.class`? 
+
+</details>
 
 <details><summary><b>Answer</b></summary>
 
@@ -60,8 +68,12 @@ That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you 
 
 ## How to access children within custom render function?
 
+<details><summary><b>Question</b></summary>
+
 > If you have `<custom>Wow</custom>` which is a render function defined like this `function custom(attr:{})`, 
 > is it possible to get/render its children too?
+
+</details>
 
 <details><summary><b>Answer</b></summary>
 
@@ -106,9 +118,10 @@ This works as simple as `<PageInfo title="${title} - ${pageName}" description="$
 </details>
 
 ## How to an approach inline scope inside a view?
- 
-Is it possible to create/define a new observable scope within the view?  Something like this:
 
+<details><summary><b>Question</b></summary>
+
+Is it possible to create/define a new observable scope within the view?  Something like this:
 ```jsx
 <for {i in 0...10}>
  <scope enabled={false}>
@@ -118,6 +131,7 @@ Is it possible to create/define a new observable scope within the view?  Somethi
   </let>
 </scope>
 ```
+</details>
 
 <details><summary><b>Answer</b></summary>
   
@@ -151,6 +165,22 @@ Then use it like this:
 > Cool, how does `<content>` work here?
 
 Childless views have their child notes interpreted as attributes, a feature I termed [complex attributes](https://github.com/haxetink/tink_hxx/#complex-attributes)
+
+</details>
+
+## How to pass non-observable array as attribute
+
+<details><summary><b>Answer</b></summary>
+ 
+1. Use `@:skipCheck`
+   ```haxe
+   @:skipCheck @:attribute var plainArray:Array<Thing>;
+   ```
+2. Use `@:pure`
+   ```haxe
+   @:pure typedef PureArray = Array<Thing>;
+   ```
+3. or use `@:observable` instead of `@:pure` in example above
 
 </details>
 
