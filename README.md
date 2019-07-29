@@ -175,7 +175,8 @@ Childless views have their child notes interpreted as attributes, a feature I te
 ## How to pass non-observable array as attribute
 
 <details><summary><b>Question</b></summary>
- 
+
+Problem: I don't want to convert to observable list, because it is just for some calculation. It's ok that the list doesn't update when an item is pushed to the array.  
 I get the error _"`Array<Thing>` is not observable, because `Array<Thing>` is not observable because the field \"length\" is mutable"_
 
 </details>
