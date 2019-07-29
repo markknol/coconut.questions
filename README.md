@@ -6,7 +6,7 @@
 
 ## How to set attributes based on a condition
 
-<details><summary><b>Answer</b></summary>
+<details><summary><b>Question</b></summary>
 
 This doesn't seem to work: `<span class="<if {true}>active</if>">`
 
