@@ -174,6 +174,12 @@ Childless views have their child notes interpreted as attributes, a feature I te
 
 ## How to pass non-observable array as attribute
 
+<details><summary><b>Question</b></summary>
+ 
+I get the error _"`Array<Thing>` is not observable, because `Array<Thing>` is not observable because the field \"length\" is mutable"_
+
+</details>
+
 <details><summary><b>Answer</b></summary>
  
 1. Use `@:skipCheck`
