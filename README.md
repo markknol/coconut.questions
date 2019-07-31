@@ -120,11 +120,11 @@ This works as simple as `<PageInfo title="${title} - ${pageName}" description="$
 
 </details>
 
-## Can I change font-size in `RenderResult`?
+## Can I change styles in `RenderResult`?
 
 <details><summary><b>Answer</b></summary>
 
-Generally you can't modify `RenderResult` because it is a implementation detail and should not be touched. Instead you should pass the styles with a function like this:
+Generally you can't modify `RenderResult` because it is a implementation detail and should not be touched. Instead (if you want to change font-size for example) you should pass the styles with a function like this:
 
 ```haxe
 @:attr var renderChildren:(fontSize:Int)->coconut.ui.Children;
