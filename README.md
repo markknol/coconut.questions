@@ -56,9 +56,9 @@ That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you 
 
 <details><summary><b>Question</b></summary>
  
-> Let's say I have `<custom class=${{"active": true}}>w00t</custom>`  
-> And this render runction: `function custom(attr:{class:String}) '<div class=${attr.class}></div>'`  
-> How do you define `attr.class`? 
+Let's say I have `<custom class=${{"active": true}}>w00t</custom>`  
+And this render runction: `function custom(attr:{class:String}) '<div class=${attr.class}></div>'`  
+How do you define `attr.class`? 
 
 </details>
 
@@ -74,8 +74,7 @@ That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you 
 
 <details><summary><b>Question</b></summary>
 
-> If you have `<custom>Wow</custom>` which is a render function defined like this `function custom(attr:{})`, 
-> is it possible to get/render its children too?
+If you have `<custom>Wow</custom>` which is a render function defined like this `function custom(attr:{})`, is it possible to get/render its children too?
 
 </details>
 
@@ -120,6 +119,21 @@ class PageInfo extends View {
 This works as simple as `<PageInfo title="${title} - ${pageName}" description="${description}"/>`. It updates nicely when the values change :smiley:
 
 </details>
+
+## Can I change font-size in `RenderResult`?
+
+<details><summary><b>Answer</b></summary>
+
+Generally you can't modify `RenderResult` because it is a implementation detail and should not be touched. Instead you should pass the styles with a function like this:
+
+```haxe
+@:attr var renderChildren:(fontSize:Int)->coconut.ui.Children;
+
+function render() '<>{...renderChildren(10)}</>';
+```
+
+</details>
+
 
 ## How to an approach inline scope inside a view?
 
