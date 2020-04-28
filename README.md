@@ -78,6 +78,32 @@ How do you define `attr.class`?
 
 </details>
 
+## How to use an optional callback? 
+
+
+<details open><summary><b>Question</b></summary>
+
+I have `@:attribute function handleClose():Void;`
+
+</details>
+
+<details open><summary><b>Answer</b></summary>
+
+Give it a body, that'll be the default behavior so it's always safe to call.
+
+```haxe
+@:attribute function handleClose():Void {};
+```
+
+As alternative, you can use otherwise (that'll allow it to actually be nullable)
+
+```haxe
+@:attribute var handeClose:()->Void = null;
+```
+
+</details>
+
+
 
 ## How to access children within custom render function?
 
