@@ -52,6 +52,15 @@ That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you 
 
 </details>
 
+## How to render an empty fragment
+
+<details open><summary><b>Anwer</b></summary>
+
+- Use `<></>` for an empty fragment
+- If it's an `<if></if>`, it is fine to not have an `<else>` branch
+
+</details>
+
 ## How to pass a class in custom render function?
 
 <details open><summary><b>Question</b></summary>
