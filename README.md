@@ -6,13 +6,13 @@
 
 ## How to set attributes based on a condition
 
-<details><summary><b>Question</b></summary>
+<details open><summary><b>Question</b></summary>
 
 This doesn't seem to work: `<span class="<if {true}>active</if>">`
 
 </details>
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 For css classes, I suggest
 * `<span class={["item" => true, "active" => isActive]}` 
@@ -31,7 +31,7 @@ It's using this abstract: <https://github.com/haxetink/tink_domspec/blob/master/
 
 ## How do you declare some var inside a render function?
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 * One option is `function render() { var x = 123; return @hxx'<span>{x}</span>';  }`
 * Or you use `<let>`: <https://github.com/haxetink/tink_hxx/#let>
@@ -40,13 +40,13 @@ It's using this abstract: <https://github.com/haxetink/tink_domspec/blob/master/
 
 ## Why doesn't float translate to a renderable
 
-<details><summary><b>Question</b></summary>
+<details open><summary><b>Question</b></summary>
  
 I get error `Float should be coconut.ui.RenderResult`
 
 </details>
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you don't want `1.40632469e12` to be shown to user, so developers are forced to write their own float to string functions.
 
@@ -54,7 +54,7 @@ That's on purpose, because e.g. in Spanish `1.234` means `1234`. In general you 
 
 ## How to pass a class in custom render function?
 
-<details><summary><b>Question</b></summary>
+<details open><summary><b>Question</b></summary>
  
 Let's say I have `<custom class=${{"active": true}}>w00t</custom>`  
 And this render runction: `function custom(attr:{class:String}) '<div class=${attr.class}></div>'`  
@@ -62,7 +62,7 @@ How do you define `attr.class`?
 
 </details>
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 * Rename the attribute `class` to `className` and use `className:tink.domspec.ClassName`
 * More info: <https://github.com/haxetink/tink_domspec/blob/master/src/tink/domspec/ClassName.hx>
@@ -72,13 +72,13 @@ How do you define `attr.class`?
 
 ## How to access children within custom render function?
 
-<details><summary><b>Question</b></summary>
+<details open><summary><b>Question</b></summary>
 
 If you have `<custom>Wow</custom>` which is a render function defined like this `function custom(attr:{})`, is it possible to get/render its children too?
 
 </details>
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 Yep, this is as simple as:
  
@@ -93,7 +93,7 @@ function custom(attr:{children:coconut.ui.Children}) '<div class="custom">${...a
 
 ## How to update page title with a component?
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 ```haxe
 class PageInfo extends View {
@@ -122,7 +122,7 @@ This works as simple as `<PageInfo title="${title} - ${pageName}" description="$
 
 ## Can I change styles in `RenderResult`?
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 Generally you can't modify `RenderResult` because it is a implementation detail and should not be touched. Instead (if you want to change font-size for example) you should pass the styles with a function like this:
 
@@ -137,7 +137,7 @@ function render() '<>{...renderChildren(10)}</>';
 
 ## How to an approach inline scope inside a view?
 
-<details><summary><b>Question</b></summary>
+<details open><summary><b>Question</b></summary>
 
 Is it possible to create/define a new observable scope within the view?  Something like this:
 ```jsx
@@ -151,7 +151,7 @@ Is it possible to create/define a new observable scope within the view?  Somethi
 ```
 </details>
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
   
 It sorta depends on what you need, that thing will reset when the parent rerenders. You could try something like this:
   
@@ -188,14 +188,14 @@ Childless views have their child notes interpreted as attributes, a feature I te
 
 ## How to pass non-observable array as attribute
 
-<details><summary><b>Question</b></summary>
+<details open><summary><b>Question</b></summary>
 
 Problem: I don't want to convert to observable list, because it is just for some calculation. It's ok that the list doesn't update when an item is pushed to the array.  
 I get the error _"`Array<Thing>` is not observable, because `Array<Thing>` is not observable because the field \"length\" is mutable"_
 
 </details>
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
  
 1. Use `@:skipCheck`
    ```haxe
@@ -211,7 +211,7 @@ I get the error _"`Array<Thing>` is not observable, because `Array<Thing>` is no
 
 ## Are there coconut.ui components to handle routing ?
 
-<details><summary><b>Answer</b></summary>
+<details open><summary><b>Answer</b></summary>
 
 1. If you want simple location hash and assuming the state is all in one place, then you could do something like `function viewDidMount() { window.onhashchange = function () {/* set states from hash here*/}; Observable.auto(() -> /* compute url from states*/).bind(url -> window.location.hash = url)}`. `Observable.auto` is what's underpinning every `@:computed` property
 and in essence a coconut view is something like `Observable.auto(this.render).bind(applyVDom)`.
