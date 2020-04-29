@@ -131,23 +131,21 @@ function custom(attr:{children:coconut.ui.Children}) '<div class="custom">${...a
 <details open><summary><b>Answer</b></summary>
 
 ```haxe
-class PageInfo extends View {
-    @:attribute var title:String;
-    @:attribute var description:String;
+import js.Browser.document;
 
-    function render() {
-        var document:Document = js.Browser.document;
-        document.title = title;
-        document.getElementsByTagName("title")[0].innerText = title;
-        setMeta("description", description);
+class PageInfo extends coconut.ui.View {
+  @:tracked @:attribute var title:String;
+  @:tracked @:attribute var description:String;
 
-        inline function keep(v:String) return Math.random() * v.length > 0 ? "" : "";
-        return hxx('<div style="display:none">${keep(title)}${keep(description)}</div>');
-    }
+  function render() return null;
 
-    inline function setMeta(tag:String, value:String) {
-        document.querySelector('meta[name=\'${tag}\']').setAttribute("content", value);
-    }
+  function viewDidRender(_) {
+    document.title = title;
+    for (e in document.querySelectorAll('title'))
+      e.textContent = title;
+    for (e in document.querySelectorAll('meta[name="description]'))
+      (cast e:js.html.Element).setAttribute("content", description);
+  }
 }
 ```
 
