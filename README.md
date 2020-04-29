@@ -151,6 +151,8 @@ class PageInfo extends coconut.ui.View {
 
 This works as simple as `<PageInfo title="${title} - ${pageName}" description="${description}"/>`. It updates nicely when the values change :smiley:
 
+That said, if you have the data in a model, you should rather apply it to the document via binding: `pageInfo.observables.title.bind(t -> document.title = t)`.
+
 </details>
 
 ## Can I change styles in `RenderResult`?
