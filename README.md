@@ -169,7 +169,18 @@ function render() '<>{...renderChildren(10)}</>';
 
 </details>
 
+## How to render an space without `&nbsp;`?
 
+<details open><summary><b>Question</b></summary>
+In some cases you want to render actual spaces and avoid non-breaking spaces. How to render an space without <code>&amp;nbsp;</code>?
+</details>
+
+<details open><summary><b>Answer</b></summary>
+Use <code>${" "}</code><br/><br/>
+ 
+It dumps in a text node and after that the white space rules of the parent html element do their thing.
+</details>
+ 
 ## How to an approach inline scope inside a view?
 
 <details open><summary><b>Question</b></summary>
